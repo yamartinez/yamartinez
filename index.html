@@ -20,8 +20,10 @@
     <link href="splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
 </head>
 
-<body onload="updateTime();" style = "background-color:black;color:white;font-size:10vw;">
+<body onload="updateTime();" style = "background-color:black;color:white;font-size:10vw;margin:0;padding:0;">
 <p id = "time" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:0;position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);"><p>
+
+<iframe src="https://open.spotify.com/embed/track/7xQAfvXzm3AkraOtGPWIZg" style = "position: fixed; bottom:0;" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 </body>
 
 <script>
@@ -34,7 +36,16 @@ function updateTime()
     if (parseInt(clock.getHours()/12) == 0){ampm = "am";}
     else{ampm = "pm";}
 
-    t.innerHTML = clock.getHours() +":"+ clock.getMinutes() + " " + ampm;
+    var minute = clock.getMinutes();
+
+    if (minute < 10)
+    {
+        minute = "0"+minute;
+    } 
+
+    var currenttime = clock.getHours()%12 +":"+ minute + " " + ampm;
+
+    t.innerHTML = currenttime;
 
     //console.log("Ran Update Timer at " + clock.getHours() + ":" + clock.getMinutes() + ":" + clock.getSeconds());
 
