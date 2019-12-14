@@ -58,6 +58,10 @@ function updateTime()
         document.body.style.background = "red";
     }
 
+    if (hour == 10){
+        alert("Pencils Down!\nPlease Turn in Your Exams");
+    }
+
     //console.log("Ran Update Timer at " + clock.getHours() + ":" + clock.getMinutes() + ":" + clock.getSeconds());
 
     setTimeout(function(){updateTime();},1000);
