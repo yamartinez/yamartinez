@@ -6,6 +6,13 @@
     <input type="text" id = "username" name="username"><br>
     <label for="message">Room Number</label><br>
     <input type="text" id="message" name="content"><br>
-    <input type="submit">
+    <input type="submit" onclick="sent()">
 </form> 
+<span id="conf" style ="visibility: hidden;">Thank you!</span>
   
+<script>
+    let sent = ()=>{
+        const e = document.getElementById("conf");
+        e.style.visibility = "visible";
+    }
+</script>
